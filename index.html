@@ -54,19 +54,19 @@
 
     function TaiXiu()
     {
-        const choice = document.querySelector(".user-choice-input").value;
+        var choice = document.querySelector(".user-choice-input").value;
         const money_bet = document.querySelector(".money-bet-input").value;
         const user_money = document.querySelector(".user-money-count").innerText;
         const user_money_count = document.querySelector(".user-money-count");
         var money = parseInt(user_money);
+        var bet = parseInt(money_bet);
 
-        if(choice == "Tài" || choice == "Xỉu" && typeof(money_bet) === 'number' && user_money <= parseInt(user_money))
+        if(choice == "Tài" || choice == "Xỉu" &&  bet <= parseInt(user_money))
         {
             var rand = Math.floor(Math.random() * 100);
             document.querySelector(".board-number").textContent=rand;
             if(rand % 2 == 0 && choice == "Tài")
             {
-            
             user_money_count.textContent = money + parseInt(money_bet);
             document.querySelector(".result-text").textContent='Tài';
             }
