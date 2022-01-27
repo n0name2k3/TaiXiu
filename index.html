@@ -70,21 +70,22 @@
             user_money_count.textContent = money + parseInt(money_bet);
             document.querySelector(".result-text").textContent='Tài';
             }
-            else if (rand % 2 == 0 && choice == "Xỉu")
+
+             if (rand % 2 == 0 && choice == "Xỉu")
             {
                 
                 user_money_count.textContent = money - parseInt(money_bet);
-                document.querySelector(".result-text").textContent='Xỉu';
+                document.querySelector(".result-text").textContent='Tài';
             }
 
             if(rand % 2 != 0 && choice == "Xỉu")
             {
            
                 user_money_count.textContent = money + parseInt(money_bet);
-            document.querySelector(".result-text").textContent='Tài';
+                document.querySelector(".result-text").textContent='Xỉu';
             }
 
-            else if (rand % 2 != 0 && choice == "Tài")
+             if (rand % 2 != 0 && choice == "Tài")
             {
                 user_money_count.textContent = money - parseInt(money_bet);
                 document.querySelector(".result-text").textContent='Xỉu';
