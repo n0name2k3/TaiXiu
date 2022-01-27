@@ -60,7 +60,7 @@
         const user_money_count = document.querySelector(".user-money-count");
         var money = parseInt(user_money);
 
-        if(choice == "Tài" || choice == "Xỉu" && money_bet <= parseInt(user_money))
+        if(choice == "Tài" || choice == "Xỉu" && typeof(money_bet) === 'number' && user_money <= parseInt(user_money))
         {
             var rand = Math.floor(Math.random() * 100);
             document.querySelector(".board-number").textContent=rand;
