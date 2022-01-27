@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/5397988ffb.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chmua Hme</title>
+</head>
+<body>
+
+    <div class="heading">
+        <h1 class="header">Chmua Hme</h1>
+    </div>
+
+    <div class="user-money">
+        <span>Your money : </span>
+        <span class="user-money-count">9</span><span>$</span>
+    </div>
+
+    <div class="container">
+        <div class="board">
+            <span class="board-number">Designed By</span>
+        </div>
+
+        <div class="result">
+            <span class="result-text">Noname03</span>
+        </div>
+
+        <div class="button" onclick="TaiXiu();">
+            <span class="button-text">HIT</span>
+        </div>
+
+        <div class="user-choice">
+            <span class="user-choice-text">Tài hay Xỉu ?</span>
+            <br>
+            <input type="text" class="user-choice-input"><span>$</span>
+        </div>
+
+        <div class="money-bet">
+            <span class="money-bet-text">Số tiền muốn bet</span>
+            <br>
+            <input type="text" class="money-bet-input"><span>$</span>
+        </div>
+    </div>
+
+    
+
+</body>
+
+<script>
+
+    function TaiXiu()
+    {
+        const choice = document.querySelector(".user-choice-input").value;
+        const money_bet = document.querySelector(".money-bet-input").value;
+        const user_money = document.querySelector(".user-money-count").innerText;
+        const user_money_count = document.querySelector(".user-money-count");
+        var money = parseInt(user_money);
+
+        if(choice == "Tài" || choice == "Xỉu" && money_bet <= parseInt(user_money))
+        {
+            var rand = Math.floor(Math.random() * 100);
+            document.querySelector(".board-number").textContent=rand;
+            if(rand % 2 == 0 && choice == "Tài")
+            {
+            
+            user_money_count.textContent = money + parseInt(money_bet);
+            document.querySelector(".result-text").textContent='Tài';
+            }
+            else if (rand % 2 == 0 && choice == "Xỉu")
+            {
+                
+                user_money_count.textContent = money - parseInt(money_bet);
+                document.querySelector(".result-text").textContent='Xỉu';
+            }
+
+            if(rand % 2 != 0 && choice == "Xỉu")
+            {
+           
+                user_money_count.textContent = money + parseInt(money_bet);
+            document.querySelector(".result-text").textContent='Tài';
+            }
+
+            else if (rand % 2 != 0 && choice == "Tài")
+            {
+                user_money_count.textContent = money - parseInt(money_bet);
+                document.querySelector(".result-text").textContent='Xỉu';
+            }
+
+            if(parseInt(user_money) <= 0)
+            {
+                alert("Ngu!");
+                location.reload();
+            }
+
+        }
+        else {
+            alert("?");
+        }
+        
+    }
+    
+</script>
+
+</html>
